@@ -8,7 +8,6 @@ import {
   } from "./elements.js"
   
   export default function({controls, timer, sound}) {
-  
     buttonPlay.addEventListener('click', function() {
       controls.play()
       timer.countdown()
@@ -50,5 +49,4 @@ import {
       timer.updateDisplay(newMinutes, 0)
       timer.updateMinutes(newMinutes)
     })
-  
   }

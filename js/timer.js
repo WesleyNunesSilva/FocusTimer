@@ -4,14 +4,18 @@ export function Timer({
   minutesDisplay, 
   secondsDisplay, 
   resetControls,
-  sound
+  
 }) {
 
   let timerTimeOut
   let minutes = Number(minutesDisplay.textContent)
 
   function updateDisplay(newMinutes, seconds) {
-  
+    if (isNaN(newMinutes)) {
+        alert("Permitido somente números")
+        newMinutes = 0   
+    }
+    
     newMinutes = newMinutes === undefined ? minutes : newMinutes
     seconds = seconds === undefined ? 0 : seconds
     minutesDisplay.textContent = String(newMinutes).padStart(2, "0")
@@ -37,7 +41,6 @@ export function Timer({
         Sounds().timeEnd()
         return
       }
-
 
       if( seconds <= 0 ) {
         seconds = 60
